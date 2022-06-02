@@ -24,6 +24,7 @@ header {
 
     border: solid black 1px;
     margin-right: 25px;
+    padding: 10px;
 }
 
 .search-input {
