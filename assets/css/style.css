@@ -1,34 +1,38 @@
 header {
-
     background-color: darkblue;
     color: white;
     text-align: center;
     text-shadow: 5px;
     padding: 10px 20px 10px 20px;
     margin: 10px;
+    margin-bottom: 25px;
     border-radius: 20px;
 }
 
 .search-heading {
-
     font-weight: bold;
 }
 
 .search-container {
-
     margin-left: 30px;
     border-bottom: solid black 1px;
 }
 
 .current-weather {
-
     border: solid black 1px;
     margin-right: 25px;
     padding: 10px;
 }
 
-.search-input {
+.current-city {
+    font-weight: bolder;
+}
 
+.weather-element {
+    padding-bottom: 8px;
+}
+
+.search-input {
     width: 100%;
     margin-bottom: 10px;
     padding: 5px;
