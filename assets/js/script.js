@@ -1,9 +1,8 @@
-var city = "London";
-var cityUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&APPID=e53413e7d520a9be0760317a0280fb3f";
+const searchButtonEl = document.querySelector("#search-button");
 
-var currentcityEl = document.querySelector(".current-city");
-
-var currentWeatherEl = document.querySelector(".current-weather");
+const currentcityEl = document.querySelector(".current-city");
+const currentWeatherEl = document.querySelector(".current-weather");
+const pastSearchesEl = document.querySelector(".past-search-wrapper");
 
 // var getCityWeather = function(cityUrl) {
 //   fetch(cityUrl).then(function(response) {
@@ -22,7 +21,13 @@ var currentWeatherEl = document.querySelector(".current-weather");
 
 // getCityWeather(cityUrl);
 
-const searchButtonHandler = function(city) {
+const searchButtonHandler = function() {
+
+  let city = document.querySelector('input[name="search-input"]').value;
+  
+  let pastCityEl = document.createElement("button");
+  pastCityEl.textContent = city;
+  pastSearchesEl.appendChild(pastCityEl);
 
   fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&APPID=e53413e7d520a9be0760317a0280fb3f").then(function(response) {
     response.json().then(function(data) {
@@ -50,4 +55,5 @@ const displayWeather = function(lat, lon) {
   });
 }
 
-searchButtonHandler(city)
+
+searchButtonEl.addEventListener("click", searchButtonHandler);

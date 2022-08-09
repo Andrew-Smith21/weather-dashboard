@@ -22,9 +22,14 @@ header {
     border: solid black 1px;
     margin-right: 25px;
     padding: 10px;
+    margin-bottom: 20px;
 }
 
-.current-city {
+article h2 {
+    font-weight: bolder;
+}
+
+article h3 {
     font-weight: bolder;
 }
 
@@ -39,12 +44,22 @@ header {
 }
 
 .search-button {
-
     width: inherit;
     background-color: rgb(1, 105, 251);
     border: solid rgb(1, 105, 251) 1px;
     border-radius: 5px;
     color: white;
     padding: 3px;
+    margin-bottom: 15px;
+}
+
+.past-search-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.past-search-wrapper button {
+    width: 100%;
+    background-color: lightgray;
     margin-bottom: 15px;
 }
