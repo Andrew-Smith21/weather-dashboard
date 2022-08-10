@@ -1,26 +1,21 @@
 const searchButtonEl = document.querySelector("#search-button");
 
 const currentcityEl = document.querySelector(".current-city");
+const currentTempEl = document.querySelector(".current-temp");
+const currentWindEl = document.querySelector(".current-wind");
+const currentHumidityEl = document.querySelector(".current-humidity");
+const currentUvEl = document.querySelector(".current-UV");
 const currentWeatherEl = document.querySelector(".current-weather");
 const pastSearchesEl = document.querySelector(".past-search-wrapper");
 
-// var getCityWeather = function(cityUrl) {
-//   fetch(cityUrl).then(function(response) {
-//       // request was successful
-//       if (response.ok) {
-//         response.json().then(function(data) {
-//           console.log(data);
-//           displayWeather(data);
-//         });
-//       }
-//       else {
-//         alert("There was a problem with your request!");
-//       }
-//   });
-// }
+// Date Formatting
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+today = mm + '/' + dd + '/' + yyyy;
 
-// getCityWeather(cityUrl);
-
+// Search Button Function
 const searchButtonHandler = function() {
 
   let city = document.querySelector('input[name="search-input"]').value;
@@ -47,10 +42,15 @@ const searchButtonHandler = function() {
 
 const displayWeather = function(lat, lon) {
 
-  fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=e53413e7d520a9be0760317a0280fb3f").then(function(response) {
+  fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=e53413e7d520a9be0760317a0280fb3f&units=imperial").then(function(response) {
     response.json().then(function(data) {
-      console.log(data.main.temp);
-      currentcityEl.textContent = data.name;
+      console.log(data.wind.speed);
+      currentcityEl.textContent = data.name + " (" + today + ") ";
+      currentTempEl.textContent = "Temp: " + data.main.temp + "°F";
+      currentWindEl.textContent = "Wind: " + data.wind.speed + " MPH";
+      currentHumidityEl.textContent = "Humidity: " + data.main.humidity + "%";
+      
+
     });
   });
 }
