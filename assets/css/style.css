@@ -63,3 +63,22 @@ article h3 {
     background-color: lightgray;
     margin-bottom: 15px;
 }
+
+.forecast-container{
+    margin-left: 0px;
+}
+
+.day {
+    color: white;
+    background-color: #424952;
+    margin-right: 25px;
+    padding: 8px;
+}
+
+.day h4 {
+    padding-bottom: 50px;
+}
+
+.day h5 {
+    padding-bottom: 15px;
+}

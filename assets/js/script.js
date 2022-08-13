@@ -36,7 +36,6 @@ const searchButtonHandler = function() {
 const displayWeather = function(lat, lon) {
   fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=e53413e7d520a9be0760317a0280fb3f&units=imperial").then(function(response) {
     response.json().then(function(data) {
-      console.log(data.name);
       currentcityEl.textContent = data.name + " (" + today + ") ";
       currentTempEl.textContent = "Temp: " + data.main.temp + "°F";
       currentWindEl.textContent = "Wind: " + data.wind.speed + " MPH";
